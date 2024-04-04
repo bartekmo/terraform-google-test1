@@ -147,7 +147,7 @@ data "cloudinit_config" "fgt" {
 module "fgtimage" {
   count = var.image.name == "" ? 1 : 0
 
-  source = "./modules/fgt-get-image"
+  source = "../fgt-get-image"
   ver    = var.image.version
   arch   = var.image.arch
   lic    = "${try(var.license_files[0], "")}${try(var.flex_tokens[0], "")}" != "" ? "byol" : var.image.license
